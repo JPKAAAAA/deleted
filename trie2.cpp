@@ -3,7 +3,7 @@ using namespace std;
 
 class Node
 {   public:
-    
+    char data;
     Node *child[26];
     bool terminate;
     Node()
@@ -38,6 +38,7 @@ void Trie::insert()
         {
             Node *newnode=new Node;
             ptr->child[index]=newnode;
+            ptr->data=data[i];
         }
         ptr=ptr->child[index];
 
@@ -58,9 +59,10 @@ void Trie::search(char str[100])
             cout<<"No such element";
             return;
         }
+        cout<<ptr->data;
         ptr=ptr->child[index];
     }
-    cout<<"Element present";
+    cout<<endl<<"Element present";
 }
 
 int main()
